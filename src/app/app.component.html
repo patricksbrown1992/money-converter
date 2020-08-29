@@ -33,10 +33,14 @@
     
   </form>
   
-  
+  <br>
   <p>Amount</p>
-  Original Currency - {{original_currency}}
-  Desired Currency - {{desired_currency}}
+  <input type="text" [(ngModel)]="amount">
+  <br>
+  {{amount}}
+  <br>
+  <br>
+  <button (click)="onClick()">Submit</button>
 </div>
 
 <router-outlet></router-outlet>
