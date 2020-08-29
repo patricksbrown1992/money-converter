@@ -7,6 +7,36 @@
     </ul>
 
 </div>
+<div class='splash-body'>
+  <p>Original Currency</p>
 
+  <form [formGroup]="originalCurrenciesForm" (change)="onSubmitOriginalCurr()">
+
+    <select formControlName="name">
+      <option >Choose Original Currency</option>
+      <option *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+  
+    
+  </form>
+
+  
+  <p>Desired Currency</p>
+
+  <form [formGroup]="desiredCurrenciesForm" (change)="onSubmitDesiredCurr()">
+
+    <select formControlName="name">
+      <option >Choose Desired Currency</option>
+      <option *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+  
+    
+  </form>
+  
+  
+  <p>Amount</p>
+  Original Currency - {{original_currency}}
+  Desired Currency - {{desired_currency}}
+</div>
 
 <router-outlet></router-outlet>
