@@ -33,16 +33,13 @@ export class AppComponent {
   }
 
   onClick(){
-    // fetch(`https://api.exchangeratesapi.io/latest?symbols=${this.original_currency},${this.desired_currency}`).then((res) => console.log(res))
-    // this.ans = this._http.myMethod(this.original_currency, this.desired_currency, parseInt(this.amount))
-    // console.log(this.ans)
+
     this._http.getBeer(this.original_currency).subscribe(data => {
-      this.ans = data["rates"][this.desired_currency] * parseInt(this.amount)
-      console.log(this.ans.toFixed(2));
+      this.ans = (data["rates"][this.desired_currency] * parseInt(this.amount)).toFixed(2)
       
     }
   );
-  // this._http.getBeer(this.original_currency, this.desired_currency, parseInt(this.amount))
+  
   }
 
   
