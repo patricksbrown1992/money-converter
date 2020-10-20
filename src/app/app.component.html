@@ -1,45 +1,41 @@
-<div class='splash-header'>
-    <h1>Money Converter</h1>
-    <ul class=links-div>
-      <a href="https://patricksbrown1992.github.io/portfolio/" target="_blank">Portfolio</a>
-      <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/patricksbrown1992" target="_blank">Github</a>
-    </ul>
-
+<div class="splash-header">
+  <h1>Money Converter</h1>
+  <ul class="links-div">
+    <a href="https://patricksbrown1992.github.io/portfolio/" target="_blank"
+      >Portfolio</a
+    >
+    <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank"
+      >LinkedIn</a
+    >
+    <a href="https://github.com/patricksbrown1992" target="_blank">Github</a>
+  </ul>
 </div>
-<div class='splash-body'>
+<div class="splash-body">
   <p>Original Currency</p>
 
   <form [formGroup]="originalCurrenciesForm" (change)="onSubmitOriginalCurr()">
-
     <select formControlName="name">
-      <option >Choose Original Currency</option>
-      <option *ngFor="let currency of currencies">{{currency}}</option>
+      <option>Choose Original Currency</option>
+      <option *ngFor="let currency of currencies">{{ currency }}</option>
     </select>
-  
-    
   </form>
 
-  
   <p>Desired Currency</p>
 
   <form [formGroup]="desiredCurrenciesForm" (change)="onSubmitDesiredCurr()">
-
     <select formControlName="name">
-      <option >Choose Desired Currency</option>
-      <option *ngFor="let currency of currencies">{{currency}}</option>
+      <option>Choose Desired Currency</option>
+      <option *ngFor="let currency of currencies">{{ currency }}</option>
     </select>
-  
-    
   </form>
-  
-  <br>
+
+  <br />
   <p>Amount</p>
-  <input type="text" [(ngModel)]="amount">
-  <br>
+  <input type="text" [(ngModel)]="amount" />
+  <br />
   <button (click)="onClick()">Submit</button>
-  <br>
-  {{ans}}
+  <br />
+  {{ ans }}
 </div>
 
 <router-outlet></router-outlet>

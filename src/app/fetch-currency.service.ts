@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FetchCurrencyService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getBeer(original_curr: string){
-
-    return this.http.get(`https://api.exchangeratesapi.io/latest?base=${original_curr}`)
-     
-    }
+  getBeer(original_curr: string) {
+    return this.http.get(
+      `https://api.exchangeratesapi.io/latest?base=${original_curr}`
+    );
+  }
 }

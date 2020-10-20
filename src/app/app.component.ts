@@ -1,29 +1,63 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from "@angular/forms";
-import {FetchCurrencyService} from './fetch-currency.service'
+import { FormBuilder } from '@angular/forms';
+import { FetchCurrencyService } from './fetch-currency.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  currencies: any = ["AUD", "BGN", "BRL", "CAD","CHF","CNY","CZK","DKK","EUR","GBP","HKD","HRK","HUF","IDR","ILS","INR","ISK","JPY","KRW","MXN","MYR","NOK","NZD","PHP","PLN","RON","RUB","SEK","SGD","THB","TRY","USD","ZAR"]
+  currencies: any = [
+    'AUD',
+    'BGN',
+    'BRL',
+    'CAD',
+    'CHF',
+    'CNY',
+    'CZK',
+    'DKK',
+    'EUR',
+    'GBP',
+    'HKD',
+    'HRK',
+    'HUF',
+    'IDR',
+    'ILS',
+    'INR',
+    'ISK',
+    'JPY',
+    'KRW',
+    'MXN',
+    'MYR',
+    'NOK',
+    'NZD',
+    'PHP',
+    'PLN',
+    'RON',
+    'RUB',
+    'SEK',
+    'SGD',
+    'THB',
+    'TRY',
+    'USD',
+    'ZAR',
+  ];
 
-  constructor(public fb: FormBuilder, private _http: FetchCurrencyService) { }
+  constructor(public fb: FormBuilder, private _http: FetchCurrencyService) {}
 
   originalCurrenciesForm = this.fb.group({
-    name: ['']
-  })
+    name: [''],
+  });
 
   desiredCurrenciesForm = this.fb.group({
-    name: ['']
-  })
+    name: [''],
+  });
 
-  original_currency: any = ''
-  desired_currency: any = ''
+  original_currency: any = '';
+  desired_currency: any = '';
   amount: any = '';
-  ans: any
+  ans: any;
 
   onSubmitOriginalCurr() {
     this.original_currency = this.originalCurrenciesForm.value.name;
@@ -32,15 +66,11 @@ export class AppComponent {
     this.desired_currency = this.desiredCurrenciesForm.value.name;
   }
 
-  onClick(){
-
-    this._http.getBeer(this.original_currency).subscribe(data => {
-      this.ans = (data["rates"][this.desired_currency] * parseInt(this.amount)).toFixed(2)
-      
-    }
-  );
-  
+  onClick() {
+    this._http.getBeer(this.original_currency).subscribe((data) => {
+      this.ans = (
+        data['rates'][this.desired_currency] * parseInt(this.amount)
+      ).toFixed(2);
+    });
   }
-
-  
 }
